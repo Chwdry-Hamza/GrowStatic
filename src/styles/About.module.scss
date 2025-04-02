@@ -1,0 +1,122 @@
+$text-color: white;
+$button-bg: #ff4081;
+$button-hover-bg: #e91e63;
+$info-bg: #1e3a8a;
+
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+  color: $text-color;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); // Gradient background for the page
+}
+
+.aboutContent {
+  flex: 1; // Ensure content takes up available space
+  padding: 3rem 5%;
+  margin-top: 3rem;
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1a202c; // Dark text for contrast
+    margin-bottom: 2rem;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.infoSection {
+  background-color: $info-bg;
+  padding: 3rem 5%;
+  color: $text-color;
+  border-radius: 15px;
+  max-width: 800px; // Limit width for better readability
+  margin: 0 auto; // Center the section
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-family: "Poppins", sans-serif;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    font-family: "Roboto", sans-serif;
+    margin: 0 auto; // Center the paragraph
+  }
+}
+
+.infoButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: $button-bg;
+  color: $text-color;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: $button-hover-bg;
+    transform: scale(1.05);
+  }
+
+  .arrow {
+    font-size: 1.2rem;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .aboutContent {
+    padding: 2rem 3%;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .infoSection {
+    padding: 2rem 3%;
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutContent {
+    padding: 1.5rem 2%;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .infoSection {
+    padding: 1.5rem 2%;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+}

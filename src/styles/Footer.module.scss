@@ -1,0 +1,116 @@
+$footer-bg-gradient: linear-gradient(135deg, #2a2a72 0%, #009ffd 100%);
+$text-dark: #ffffff; // White text for contrast against the gradient background
+$button-bg: #ff4081; // Same as Home page
+$button-hover-bg: #e91e63; // Same as Home page
+
+.footer {
+  background: $footer-bg-gradient;
+  padding: 1.5rem 6rem; // Increased horizontal padding to 3rem for a larger gap from the corners
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 5;
+}
+
+.footerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%; // Use full width to push elements to the edges
+  margin: 0 auto;
+  flex-wrap: nowrap;
+}
+
+.footerLogo {
+  .logoText {
+    color: $text-dark;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ffffff, #a1c4fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.scrollToTop {
+  background: $button-bg; // Match Home page navButton background
+  border: none;
+  border-radius: 50%;
+  width: 40px; // Match Home page navButton size
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); // Match Home page navButton shadow
+
+  &:hover {
+    background: $button-hover-bg; // Match Home page navButton hover background
+    transform: scale(1.1); // Match Home page navButton hover effect
+  }
+
+  .arrow {
+    font-size: 1.2rem; // Match Home page navButton font size
+    color: $text-dark; // White, matches Home page
+    font-weight: bold;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 1rem 1.5rem; // Reduced horizontal padding to 1.5rem for a smaller gap on mobile
+  }
+
+  .footerContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .footerLogo {
+    .logoText {
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  .scrollToTop {
+    width: 35px; // Match Home page navButton responsive size
+    height: 35px;
+
+    .arrow {
+      font-size: 1rem; // Match Home page navButton responsive font size
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 0.8rem 0.75rem; // Further reduced horizontal padding to 0.75rem on very small screens
+  }
+
+  .footerLogo {
+    .logoText {
+      font-size: 1rem;
+    }
+  }
+
+  .scrollToTop {
+    width: 35px;
+    height: 35px;
+
+    .arrow {
+      font-size: 1rem;
+    }
+  }
+}

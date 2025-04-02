@@ -1,0 +1,156 @@
+$text-color: white;
+$hover-color: #ccc;
+$mobile-menu-bg: white;
+$mobile-text-color: #1e3a8a;
+$mobile-hover-color: #3b82f6;
+$navbar-bg: #1e3a8a; // New background color for Navbar
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: $navbar-bg; // Updated to dark blue
+  color: $text-color;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  .logo {
+    a {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: $text-color;
+      font-family: sans-serif;
+    }
+  }
+
+  .toggler {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 11;
+
+    .hamburger {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: $text-color;
+      position: relative;
+      transition: background-color 0.3s ease;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 3px;
+        background-color: $text-color;
+        transition: transform 0.3s ease;
+      }
+
+      &::before {
+        top: -8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+
+      &.active {
+        background-color: transparent;
+
+        &::before {
+          transform: rotate(45deg);
+          top: 0;
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+          top: 0;
+        }
+      }
+    }
+  }
+
+  .navLinks {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+
+    li {
+      a {
+        color: $text-color;
+        text-decoration: none;
+        font-size: 1rem;
+        font-family: sans-serif;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $hover-color;
+        }
+      }
+
+      // Style for non-link items (Nulla, Viverra, etc.)
+      &:not(:first-child) {
+        color: $text-color;
+        font-size: 1rem;
+        font-family: sans-serif;
+        cursor: default;
+      }
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    flex-direction: row;
+    padding: 1rem;
+
+    .toggler {
+      display: block;
+    }
+
+    .navLinks {
+      display: none;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: $mobile-menu-bg; // White background for mobile menu
+      padding: 1rem 0;
+      z-index: 10;
+
+      &.active {
+        display: flex;
+      }
+
+      li {
+        a {
+          color: $mobile-text-color; // Blue text for links in mobile menu
+          font-size: 1.1rem;
+
+          &:hover {
+            color: $mobile-hover-color; // Lighter blue on hover
+          }
+        }
+
+        // Style for non-link items in mobile menu
+        &:not(:first-child) {
+          color: $mobile-text-color; // Blue text for non-links
+          font-size: 1.1rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
